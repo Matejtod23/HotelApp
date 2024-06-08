@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <img class="col-10" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/518332246.jpg?k=852d9e83009ac082a7bb8366d5e27fb1f21801ea9cb6dde9c14e1aa99c49ea63&o=&hp=1" height="600px">
+    </div>
+    <div class="d-flex mt-5">
+        <div class="d-flex justify-content-center flex-column offset-1 pe-3 col-4">
+            <h4>ABOUT US</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto expedita impedit in molestiae officiis omnis reprehenderit temporibus totam unde. Aliquid consequuntur dicta eaque et iste optio quidem ut voluptas.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto autem deserunt dolores expedita numquam, quam quos! Cumque dolor dolores eligendi excepturi, fugiat ipsam ipsum iusto, natus, nihil porro voluptatum?</p>
+            <button class="btn btn-dark rounded-3 w-25 mx-auto">Contact Us</button>
+        </div>
+        <img class="col-7" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/518332246.jpg?k=852d9e83009ac082a7bb8366d5e27fb1f21801ea9cb6dde9c14e1aa99c49ea63&o=&hp=1" width="100%">
+    </div>
+
+    <div class="bg-body-secondary pb-5">
+        <h1 class="text-center">Available Rooms</h1>
+        <hr style="border: none; height: 5px; color: #000; background-color: #000" class="w-25 d-flex mx-auto">
+        <div class="card-holder mt-5 mx-auto gap-4 d-grid" style="grid-template-columns: 1fr 1fr 1fr; width: 80%">
+            {% for room in rooms %}
+                <a href="{% url 'details' room.id %}">
+                <div class="card pt-2 pb-2 text-center">
+                    <h3>{{ room.number }}</h3>
+                    <p>{{ room.numberOfBeds }}</p>
+                    <a href="{% url 'edit_room' room.id %}" class="btn btn-info w-25 mx-auto">Edit room</a>
+                </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div>
+        <h1 class="text-center mt-5">Room Gallery</h1>
+        <div class="img-holder row w-75 mx-auto">
+            <div class="row mb-5 mt-3">
+                <img class="col-3" src="https://aremorch.com/wp-content/uploads/2016/09/The-Details-That-Matter-Top-Things-Every-Luxury-Hotel-Room-Should-Have.png" width="100%" height="100%">
+                <img class="col-3" src="https://aremorch.com/wp-content/uploads/2016/09/The-Details-That-Matter-Top-Things-Every-Luxury-Hotel-Room-Should-Have.png" width="100%" height="100%">
+                <img class="col-3" src="https://aremorch.com/wp-content/uploads/2016/09/The-Details-That-Matter-Top-Things-Every-Luxury-Hotel-Room-Should-Have.png" width="100%" height="100%">
+                <img class="col-3" src="https://aremorch.com/wp-content/uploads/2016/09/The-Details-That-Matter-Top-Things-Every-Luxury-Hotel-Room-Should-Have.png" width="100%" height="100%">
+            </div>
+            <div class="row">
+                <img class="col-3" src="https://aremorch.com/wp-content/uploads/2016/09/The-Details-That-Matter-Top-Things-Every-Luxury-Hotel-Room-Should-Have.png" width="100%" height="100%">
+                <img class="col-3" src="https://aremorch.com/wp-content/uploads/2016/09/The-Details-That-Matter-Top-Things-Every-Luxury-Hotel-Room-Should-Have.png" width="100%" height="100%">
+                <img class="col-3" src="https://aremorch.com/wp-content/uploads/2016/09/The-Details-That-Matter-Top-Things-Every-Luxury-Hotel-Room-Should-Have.png" width="100%" height="100%">
+                <img class="col-3" src="https://aremorch.com/wp-content/uploads/2016/09/The-Details-That-Matter-Top-Things-Every-Luxury-Hotel-Room-Should-Have.png" width="100%" height="100%">
+            </div>
+         </div>
+    </div>
+{% endblock %}

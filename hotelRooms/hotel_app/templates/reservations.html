@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        {% for res in reservations %}
+            <div class="card" style="width: 18rem;">
+                <img src="{{ MEDIA_URL }}{{ res.id_image.url }}" class="card-img-top" >
+                <div class="card-body">
+                    <h5 class="card-title">{{ res.code }}</h5>
+                    <p class="card-text">Room number:{{ res.room.number }} Number of beds: {{ res.room.numberOfBeds }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
